@@ -1,0 +1,56 @@
+
+/*flexbox for center element in middle of page*/
+main {
+  @include center;
+  min-height: 100vh;
+
+/*grid for separate the 2 containers*/
+  .container {
+    display: grid;
+    grid-template-columns: 350px 540px;
+    column-gap: 30px;
+
+/*media querie*/
+    @media screen and (max-width: 950px) {
+      display: block;
+    }
+/*setting left container*/
+    .container-left {
+      background: $Darkblue;
+      height: 201px;
+      border-radius: 10px 90px 10px 10px;
+      padding: 42px 0 0 42px;
+
+      .logo-fylo {
+        background-image: url(../../images/logo.svg);
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 155px;
+      }
+
+/*align 3 icones with flex*/
+      .icons {
+        display: flex;
+        flex-direction: row;
+        margin: 34px 0 0 0;
+
+/*create $verydarkblue square, center icons with flexbox*/
+        li {
+          background: $Verydarkblue;
+          border-radius: 6px;
+          width: 48px;
+          height: 48px;
+          @include center;
+          margin-right: 16px;
+        }
+      }
+    }
+/*setting right container*/
+    .container-right {
+      background: $Darkblue;
+      height: 154px;
+      margin: 47px 0 0 0;
+      border-radius: 10px;
+    }
+  }
+}
