@@ -1,20 +1,20 @@
-
 /*flexbox for center element in middle of page*/
 main {
   @include center;
   min-height: 100vh;
 
-/*grid for separate the 2 containers*/
+  /*grid for separate the 2 containers*/
   .container {
     display: grid;
     grid-template-columns: 350px 540px;
     column-gap: 30px;
+    position: absolute;
 
-/*media querie*/
+    /*media querie*/
     @media screen and (max-width: 950px) {
       display: block;
     }
-/*setting left container*/
+    /*setting left container*/
     .container-left {
       background: $Darkblue;
       height: 201px;
@@ -28,13 +28,13 @@ main {
         width: 155px;
       }
 
-/*align 3 icones with flex*/
+      /*align 3 icones with flex*/
       .icons {
         display: flex;
         flex-direction: row;
         margin: 34px 0 0 0;
 
-/*create $verydarkblue square, center icons with flexbox*/
+        /*create $verydarkblue square, center icons with flexbox*/
         li {
           background: $Verydarkblue;
           border-radius: 6px;
@@ -45,12 +45,90 @@ main {
         }
       }
     }
-/*setting right container*/
+    /*setting right container*/
     .container-right {
       background: $Darkblue;
       height: 154px;
       margin: 47px 0 0 0;
       border-radius: 10px;
+      padding: 0 0 0 39px;
+
+
+      .container-absolute {
+        background: rgb(255, 255, 255);
+        position: relative;
+        color: black;
+        width: 179px;
+        height: 72px;
+        border-radius: 7px 7px 0px 7px;
+        padding: 16px 15px 15px 21px;
+        top: -47px;
+        transform: translatex(321px);
+
+        /*set triangle rectangle with after*/
+        &:after {
+          content: "";
+          width: 0;
+          height: 0;
+          border-top: 22px solid rgb(255, 255, 255);
+          border-left: 22px solid transparent;
+          position: relative;
+          left: 75.8px;
+          bottom: -36px;
+        }
+        /*center text inside with grid*/
+        .container-flex {
+          display: grid;
+          grid-template-columns: 50% 50%;
+          grid-template-rows: 42px;
+          align-items: center;
+          justify-items: start;
+
+          h1 {
+            font-size: 2rem;
+          }
+
+          p {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: $Grayishblue;
+            margin-top: 5px;
+            font-weight: 700;
+          }
+        }
+      }
+      .container-grid {
+        text-align: left;
+
+      .bar-bleu {
+        background:$Verydarkblue;
+        border-radius: 10px;
+        width: 458px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+
+        .bar-degraded {
+          background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+          border: 1px solid black;
+          border-radius: 10px;
+          width: 339px;
+          height: 15px;  
+          margin-left: 3px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+        .circle {
+          background: white;
+          border-radius: 10px;
+          width: 10px;
+          height: 10px; 
+          margin-right: 2px;
+        }
+        }
+      }
+      }
     }
   }
 }
