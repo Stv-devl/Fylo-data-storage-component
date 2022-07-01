@@ -1,26 +1,29 @@
-/*flexbox for center element in middle of page*/
+/* @include call flexbox for center element in middle of page*/
 main {
   @include center;
   min-height: 100vh;
 
-  /*grid for separate the 2 containers*/
+  /*Creation of a grid 2 colums for separate the 2 containers, gap 30px, position abolute for positioning the absolute container*/
   .container {
     display: grid;
     grid-template-columns: 350px 540px;
     column-gap: 30px;
     position: absolute;
 
-    /*media querie*/
+    /*media querie=> only 1 colum for tablet and mobile, change the size*/
     @media screen and (max-width: 950px) {
-      display: block;
+      grid-template-columns: 450px;
     }
-    /*setting left container*/
+    @media screen and (max-width: 550px) {
+      grid-template-columns: 327px;
+    }
+    /*setting left container color and radius*/
     .container-left {
       background: $Darkblue;
       height: 201px;
       border-radius: 10px 90px 10px 10px;
       padding: 42px 0 0 42px;
-
+    /*insert logo fylo*/
       .logo-fylo {
         background-image: url(../../images/logo.svg);
         background-repeat: no-repeat;
@@ -28,13 +31,13 @@ main {
         width: 155px;
       }
 
-      /*align 3 icones with flex*/
+      /*align the 3 icones with flex*/
       .icons {
         display: flex;
         flex-direction: row;
         margin: 34px 0 0 0;
 
-        /*create $verydarkblue square, center icons with flexbox*/
+      /*create $verydarkblue square, center icons with @include flexbox, creater hover on square*/
         li {
           background: $Verydarkblue;
           border-radius: 6px;
@@ -45,14 +48,13 @@ main {
           cursor: pointer;
           transition: 0.2s;
 
-          /*hover => bigger square*/
           &:hover {
             transform: scale(1.1);
           }
         }
       }
     }
-    /*setting right container*/
+    /*setting right container color, radius and margin*/
     .container-right {
       background: $Darkblue;
       height: 154px;
@@ -60,6 +62,12 @@ main {
       border-radius: 10px;
       @include center;
 
+    /*media querie => set size and padding for align better*/
+      @media screen and (max-width: 950px) {
+        height: 160px;
+        padding: 0 0 30px 0;
+      }
+    /*set text*/
       .container-grid {
         text-align: left;
 
@@ -69,7 +77,7 @@ main {
           font-weight: 300;
         }
 
-        /*set dark blue bar*/
+        /*set dark blue bar, flex for center element in the bar*/
         .bar-bleu {
           background: $Verydarkblue;
           border-radius: 10px;
@@ -79,7 +87,17 @@ main {
           align-items: center;
           text-align: left;
 
-          /*set degraded bar*/
+          /*media querie bar for tablet and mobile => change size of bar*/
+          @media screen and (max-width: 950px) {
+            width: 350px;
+            height: 20px;
+          }
+          @media screen and (max-width: 550px) {
+            width: 261px;
+            height: 20px;
+          }
+
+          /*set the degraded bar, flex for center element in the bar**/
           .bar-degraded {
             background: linear-gradient(
               to right,
@@ -94,6 +112,16 @@ main {
             display: flex;
             align-items: center;
             justify-content: flex-end;
+
+          /*media querie bar for tablet and mobile => change size of bar*/
+            @media screen and (max-width: 950px) {
+              width: 261px;
+              height: 15px;
+            }
+            @media screen and (max-width: 550px) {
+              width: 196px;
+              height: 15px;
+            }
 
             /*set circle in bar*/
             .circle {
@@ -133,7 +161,14 @@ main {
     top: -67px;
     transform: translatex(331px);
 
-    /*set triangle rectangle with after*/
+    /*media querie => change position for tablette and mobile*/
+    @media screen and (max-width: 950px) {
+      top: 238px;
+      transform: translateY(-50%);
+      border-radius: 7px;
+    }
+
+    /*do a triangle with after*/
     &:after {
       content: "";
       width: 0;
@@ -143,6 +178,11 @@ main {
       position: relative;
       left: 75.5px;
       bottom: -36px;
+
+      /*media querie => delete triangle*/
+      @media screen and (max-width: 950px) {
+        display: none;
+      }
     }
     /*center text inside with grid*/
     .grid-absolute {

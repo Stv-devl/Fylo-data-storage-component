@@ -33,13 +33,13 @@
     text-align: center;
     color: rgb(255, 255, 255);
     }
-    
+ /*setting link color (footer)*/     
     a,
 a:visited {
   color: $Paleblue;
 }
 
-/*to use flexbox to center elements*/      
+/*mixin for use flexbox to center elements*/      
 @mixin center {
   display: flex;
   justify-content: center;

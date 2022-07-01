@@ -26,19 +26,20 @@ body {
   color: rgb(255, 255, 255);
 }
 
+/*setting link color (footer)*/
 a,
 a:visited {
   color: hsl(243deg, 100%, 93%);
 }
 
-/*to use flexbox to center elements*/
-/*flexbox for center element in middle of page*/
+/*mixin for use flexbox to center elements*/
+/* @include call flexbox for center element in middle of page*/
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /*grid for separate the 2 containers*/
+  /*Creation of a grid 2 colums for separate the 2 containers, gap 30px, position abolute for positioning the absolute container*/
   /*set the absolute container*/
 }
 main .container {
@@ -47,13 +48,18 @@ main .container {
   -moz-column-gap: 30px;
        column-gap: 30px;
   position: absolute;
-  /*media querie*/
-  /*setting left container*/
-  /*setting right container*/
+  /*media querie=> only 1 colum for tablet and mobile, change the size*/
+  /*setting left container color and radius*/
+  /*setting right container color, radius and margin*/
 }
 @media screen and (max-width: 950px) {
   main .container {
-    display: block;
+    grid-template-columns: 450px;
+  }
+}
+@media screen and (max-width: 550px) {
+  main .container {
+    grid-template-columns: 327px;
   }
 }
 main .container .container-left {
@@ -61,7 +67,8 @@ main .container .container-left {
   height: 201px;
   border-radius: 10px 90px 10px 10px;
   padding: 42px 0 0 42px;
-  /*align 3 icones with flex*/
+  /*insert logo fylo*/
+  /*align the 3 icones with flex*/
 }
 main .container .container-left .logo-fylo {
   background-image: url(../../images/logo.svg);
@@ -73,7 +80,7 @@ main .container .container-left .icons {
   display: flex;
   flex-direction: row;
   margin: 34px 0 0 0;
-  /*create $verydarkblue square, center icons with flexbox*/
+  /*create $verydarkblue square, center icons with @include flexbox, creater hover on square*/
 }
 main .container .container-left .icons li {
   background: hsl(229deg, 57%, 11%);
@@ -86,7 +93,6 @@ main .container .container-left .icons li {
   margin-right: 16px;
   cursor: pointer;
   transition: 0.2s;
-  /*hover => bigger square*/
 }
 main .container .container-left .icons li:hover {
   transform: scale(1.1);
@@ -99,10 +105,18 @@ main .container .container-right {
   display: flex;
   justify-content: center;
   align-items: center;
+  /*media querie => set size and padding for align better*/
+  /*set text*/
+}
+@media screen and (max-width: 950px) {
+  main .container .container-right {
+    height: 160px;
+    padding: 0 0 30px 0;
+  }
 }
 main .container .container-right .container-grid {
   text-align: left;
-  /*set dark blue bar*/
+  /*set dark blue bar, flex for center element in the bar*/
   /*set text*/
 }
 main .container .container-right .container-grid p {
@@ -118,7 +132,20 @@ main .container .container-right .container-grid .bar-bleu {
   display: flex;
   align-items: center;
   text-align: left;
-  /*set degraded bar*/
+  /*media querie bar for tablet and mobile => change size of bar*/
+  /*set the degraded bar, flex for center element in the bar**/
+}
+@media screen and (max-width: 950px) {
+  main .container .container-right .container-grid .bar-bleu {
+    width: 350px;
+    height: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  main .container .container-right .container-grid .bar-bleu {
+    width: 261px;
+    height: 20px;
+  }
 }
 main .container .container-right .container-grid .bar-bleu .bar-degraded {
   background: linear-gradient(to right, hsl(6deg, 100%, 80%), hsl(335deg, 100%, 65%));
@@ -130,7 +157,20 @@ main .container .container-right .container-grid .bar-bleu .bar-degraded {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  /*media querie bar for tablet and mobile => change size of bar*/
   /*set circle in bar*/
+}
+@media screen and (max-width: 950px) {
+  main .container .container-right .container-grid .bar-bleu .bar-degraded {
+    width: 261px;
+    height: 15px;
+  }
+}
+@media screen and (max-width: 550px) {
+  main .container .container-right .container-grid .bar-bleu .bar-degraded {
+    width: 196px;
+    height: 15px;
+  }
 }
 main .container .container-right .container-grid .bar-bleu .bar-degraded .circle {
   background: white;
@@ -158,8 +198,16 @@ main .absolute {
   padding: 16px 15px 15px 21px;
   top: -67px;
   transform: translatex(331px);
-  /*set triangle rectangle with after*/
+  /*media querie => change position for tablette and mobile*/
+  /*do a triangle with after*/
   /*center text inside with grid*/
+}
+@media screen and (max-width: 950px) {
+  main .absolute {
+    top: 238px;
+    transform: translateY(-50%);
+    border-radius: 7px;
+  }
 }
 main .absolute:after {
   content: "";
@@ -170,6 +218,12 @@ main .absolute:after {
   position: relative;
   left: 75.5px;
   bottom: -36px;
+  /*media querie => delete triangle*/
+}
+@media screen and (max-width: 950px) {
+  main .absolute:after {
+    display: none;
+  }
 }
 main .absolute .grid-absolute {
   display: grid;
@@ -189,7 +243,7 @@ main .absolute .grid-absolute p {
   text-transform: uppercase;
 }
 
-/*****align footer*****/
+/*****align footer and set size and color*****/
 footer {
   text-align: center;
   font-size: 0.8rem;

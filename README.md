@@ -13,8 +13,6 @@ This is a solution to the [Fylo data storage component challenge on Frontend Men
   - [What I learned](#what-i-learned)
 - [Author](#author)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -25,13 +23,17 @@ Users should be able to:
 
 ### Screenshot
 
-IN CONSTRUCTION
+Screenshot for desktop :
 
-![](./screenshot.jpg)
+![](.//Screenshot/screenDesktop.png)
+
+Screenshot for mobile :
+
+![](.//Screenshot/screenshotMobile.png)
 
 ### Links
 
-- Solution URL: [IN CONSTRUCTION](https://your-solution-url.com)
+- Solution URL: [My solution](https://stv-devl.github.io/Fylo-data-storage-component/)
 
 ## My process
 
@@ -46,6 +48,10 @@ IN CONSTRUCTION
 
 ### What I learned
 
+I learned to do a degraded bar.
+I learned to use flexbox to center all annoying element (like img inside a square or a bar inside an other bar, tec.) and use less margin and padding.
+I practiced my SASS. Use mixin for dont repeat something write in the setting page. For exemple here a flexbox to center elements.
+
 ### Continued development
 
-Next Javascript
+Next step will be to start to learn Javascript
