@@ -42,6 +42,13 @@ main {
           height: 48px;
           @include center;
           margin-right: 16px;
+          cursor: pointer;
+          transition: 0.2s;
+
+          /*hover => bigger square*/
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
     }
@@ -51,83 +58,110 @@ main {
       height: 154px;
       margin: 47px 0 0 0;
       border-radius: 10px;
-      padding: 0 0 0 39px;
+      @include center;
 
-
-      .container-absolute {
-        background: rgb(255, 255, 255);
-        position: relative;
-        color: black;
-        width: 179px;
-        height: 72px;
-        border-radius: 7px 7px 0px 7px;
-        padding: 16px 15px 15px 21px;
-        top: -47px;
-        transform: translatex(321px);
-
-        /*set triangle rectangle with after*/
-        &:after {
-          content: "";
-          width: 0;
-          height: 0;
-          border-top: 22px solid rgb(255, 255, 255);
-          border-left: 22px solid transparent;
-          position: relative;
-          left: 75.8px;
-          bottom: -36px;
-        }
-        /*center text inside with grid*/
-        .container-flex {
-          display: grid;
-          grid-template-columns: 50% 50%;
-          grid-template-rows: 42px;
-          align-items: center;
-          justify-items: start;
-
-          h1 {
-            font-size: 2rem;
-          }
-
-          p {
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            color: $Grayishblue;
-            margin-top: 5px;
-            font-weight: 700;
-          }
-        }
-      }
       .container-grid {
         text-align: left;
 
-      .bar-bleu {
-        background:$Verydarkblue;
-        border-radius: 10px;
-        width: 458px;
-        height: 20px;
-        display: flex;
-        align-items: center;
+        p {
+          margin: 17px auto;
+          font-size: 0.8rem;
+          font-weight: 300;
+        }
 
-        .bar-degraded {
-          background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
-          border: 1px solid black;
+        /*set dark blue bar*/
+        .bar-bleu {
+          background: $Verydarkblue;
           border-radius: 10px;
-          width: 339px;
-          height: 15px;  
-          margin-left: 3px;
+          width: 458px;
+          height: 20px;
           display: flex;
           align-items: center;
-          justify-content: flex-end;
+          text-align: left;
 
-        .circle {
-          background: white;
-          border-radius: 10px;
-          width: 10px;
-          height: 10px; 
-          margin-right: 2px;
+          /*set degraded bar*/
+          .bar-degraded {
+            background: linear-gradient(
+              to right,
+              hsl(6, 100%, 80%),
+              hsl(335, 100%, 65%)
+            );
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 339px;
+            height: 15px;
+            margin-left: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            /*set circle in bar*/
+            .circle {
+              background: white;
+              border-radius: 10px;
+              width: 10px;
+              height: 10px;
+              margin-right: 2px;
+            }
+          }
         }
+
+        /*set text*/
+        .text {
+          display: flex;
+          justify-content: space-between;
+
+          h3 {
+            font-size: 0.75rem;
+            margin: 10px 0;
+            font-weight: 400;
+          }
         }
       }
+    }
+  }
+
+  /*set the absolute container*/
+  .absolute {
+    background: rgb(255, 255, 255);
+    position: relative;
+    color: black;
+    width: 179px;
+    height: 72px;
+    border-radius: 7px 7px 0px 7px;
+    padding: 16px 15px 15px 21px;
+    top: -67px;
+    transform: translatex(331px);
+
+    /*set triangle rectangle with after*/
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 22px solid rgb(255, 255, 255);
+      border-left: 22px solid transparent;
+      position: relative;
+      left: 75.5px;
+      bottom: -36px;
+    }
+    /*center text inside with grid*/
+    .grid-absolute {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 42px;
+      align-items: center;
+      justify-items: start;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.75rem;
+        color: $Grayishblue;
+        margin-top: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
       }
     }
   }

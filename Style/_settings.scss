@@ -34,6 +34,11 @@
     color: rgb(255, 255, 255);
     }
     
+    a,
+a:visited {
+  color: $Paleblue;
+}
+
 /*to use flexbox to center elements*/      
 @mixin center {
   display: flex;
